@@ -1,0 +1,139 @@
+VITETRIS - Virtual terminal *tris clone
+
+  Página web: http://victornils.net/tetris
+
+  Rotación, puntaje, niveles y velocidad deberián parecerse a los primeros
+  tetris de Nintendo, con la adición de un retraso corto al bloquearse
+  el cual hace posible jugarlo en niveles altos (No permite evitar que
+  la pieza se bloquee abusando del reseteo del retraso del bloqueo.)
+
+  vitetris incluye mas funcionalidades de las que se esperarían en un
+  juego de modo texto. Control de entrada completo, apariencia
+  personalizable, juego en red donde ambos jugadores pueden elegir
+  la dificultad (nivel y altura) -- a menos que necesites sonido
+  (o no te guste el Tetris) no te vas a decepcionar
+  No todo esta descrito aquí, pero deberías ser capaz de entenderlo.
+
+  Este programa es Software Libre. Esta distribuido bajo los términos de
+  una simple licencia de estilo BSD (OSI-approved). Ver license.txt para
+  mas detalles
+  
+
+Como Jugar
+----------
+
+  Ejecuta "./tetris" dentro de una ventana de terminal si simplemente
+  extrajiste el archivo tar en algún lugar (cd al directorio primero). 
+  El comando puede ser "vitetris" o "tetris" si usaste el administrador
+  de paquetes para instalarlo (Si estas en Windows, simplemente hace
+  doble clic en tetris.exe.)
+ 
+  
+  Para navegar los menús, utiliza las teclas de dirección, ENTRAR
+  para proceder (o abandonar un menu), y RETROCESO o ESCAPE para ir
+  atrás. Usa Q para salir inmediatamente.
+
+  Controles predeterminados
+
+	Mover a la izquierda: IZQUIERDA
+	Mover a la derecha:   DERECHA
+	Rotar:	              ARRIBA
+	Caída lenta:          ABAJO
+	Caída rápida:         ESPACIO
+
+  Para pausar una partida de un jugador, presionar P o ENTRAR
+
+  Juego de tipo A es normal, estilo "maratón".
+  En una partida de tipo B, el objetivo es limpiar 25 lineas
+
+
+Opciones
+--------
+
+  Lo primero que deberias hacer si estas en una ventana de terminal con
+  fondo blanco es entrar a "Options" y cambiar "Term BG" a "white"
+  (presionar derecha). Caso contrario, tendrás una pieza blanca/gris que
+  sera difícil de ver. También podes cambiar los colores de piezas
+  individuales en el menú "Tetromino Colours"
+
+  Para cambiar la configuración de las teclas, entra a "Input setup".
+  A la izquierda están las teclas usadas en los menús, y a la derecha
+  los usados en el juego. Simplemente presiona la tecla que querés usar.
+
+  Si no están explícitamente configurado, los siguientes controles en 
+  el juego dependen de la configuración de otras teclas (e.g. si la
+  FLECHA ARRIBA es usada para "Up", también es usada para "Rotar"):
+
+	 Rotar       - Up
+	 Rot cw      - A
+	 Rot acw     - B
+	Caída Ligera - Dwn
+
+  "Rot cw" significa "Rotar al sentido horario" y "acw" significa
+  "contrario al sentido horario".
+
+  Hay tres configuraciones separadas, Un jugador, Jugador 1 y Jugador 2
+  las cuales incluyen teclas, nivel inicial y altura, y preferencia de
+  rotación. En juego en red, la configuración de Un jugador es usada.
+
+Lineas de Comando
+-----------------
+
+  Ejecutar "tetris -help" (o cualquiera sea el nombre del comando) para
+  conseguir un mensaje de ayuda con la lista de opciones de lineas de
+  comando.  Si estas en Windows, deberás ejecutar desde una ventana de
+  cmd, o una "Ventana de DOS".
+
+  Este mensaje de ayuda te dirá donde están guardadas la configuración y
+  los puntajes.
+
+
+Juego en Red
+------------
+
+  Para jugar contra alguien en internet, uno necesita escuchar con
+
+  tetris listen PUERTO
+
+  (donde PUERTO es un numero, e.g. 34034); el otro se conecta con
+
+  tetris connect NOMBREDEHOST:PUERTO
+
+  NOMBREDEHOST puede ser una dirección de IP o un nombre de puerto.
+  Si es omitido, localhost es usado.
+
+  Si el servidor (el que esta escuchando) esta configurado como
+  modo de tipo B, el juego estará configurado como de este tipo.
+
+  También es posible jugar usando los sockets UNIX, lo que
+  significa que los nombres de archivos en el sistema local son
+  usados como direcciones. La forma mas conveniente de configurar
+  es la siguiente.  Empezar tetris en dos terminales diferentes.
+  En una el jugador debe entrar en "2-Player Game", el cual
+  mostrara una lista de ttys. Cuando el tty de otro jugador es
+  seleccionado, una invitación aparecerá en su pantalla.
+
+
+Botón de Inicio de Control
+--------------------------
+
+  El botón de INICIO en un control puede ser configurado para actuar como
+  la tecla de entrada.  Aniadí la siguiente linea de comando debajo de
+  [js0] o [js1] en .vitetris (o vitetris.cfg):
+
+  start=NUM
+
+  donde NUM es el numero del botón.
+ 
+
+Créditos
+--------
+
+  El tetris original fue diseniado y programado por Alexey Pajitnov en 1985.
+
+  La wiki en tetrisconcept.com a sido un recurso valioso.
+
+  tt "Tetris for Terminals" fue escrito por Mike Taylor en 1989.
+
+  Hugo Fernbom y Andreas Carlsson por ayudarme con testing, ideas y
+  feedback.
